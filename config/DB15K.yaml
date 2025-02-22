@@ -1,0 +1,68 @@
+output_dir: &output_dir outputs/
+
+model_name: &model_name meta-llama/Llama-2-7b-chat-hf
+
+
+dataset:
+  base_dir: data/DB15K/
+
+tokenizer:
+  pretrained_model_name_or_path: *model_name
+  use_fast: no
+  add_eos_token: no
+
+llm_config:
+  pretrained_model_name_or_path: *model_name
+
+llm:
+  pretrained_model_name_or_path: *model_name
+  load_in_8bit: no
+
+loraconfig:
+  r: &r 8
+  lora_alpha: &lora_alpha 16
+  lora_dropout: &lora_dropout 0.05
+  target_modules: 
+  - embed_tokens
+  # - lm_head
+  - q_proj
+  - v_proj
+
+k_on:
+  criterion: bce
+  num_neg: 128
+  strict_negative: yes
+  num_k_on: 8
+  num_attn_head: 8
+  r: 8
+  lora_alpha: 16
+  lora_dropout: 0.3
+  adversarial_temperature: 0.5
+
+
+trainer:
+  output_dir: *output_dir
+  num_train_epochs: 5
+  save_total_limit: 1
+  per_device_train_batch_size: 12
+  per_device_eval_batch_size: 16
+  evaluation_strategy: epoch
+  eval_steps: 500
+  save_strategy: 'no' #epoch
+  warmup_steps: 50
+  bf16: yes
+  logging_steps: 1
+  logging_strategy: steps
+  learning_rate: 1.0e-4
+  gradient_accumulation_steps: 8
+  eval_accumulation_steps: 64
+  save_safetensors: no
+  remove_unused_columns: no
+  label_names:
+  - label
+  optim: adamw_torch
+  max_grad_norm: 1.
+  ddp_find_unused_parameters: yes
+  report_to:
+  - tensorboard
+
