@@ -8,7 +8,7 @@
 Welcome to the repository for K-ON. This project investigates the potential of LLMs in understanding and interacting with knowledge graphs, a domain that has received limited exploration in the context of NLP.
 
 <div align="center">
-    <img src="https://github.com/zjukg/K-ON/blob/master/imgs/example.png" width="55%" height="auto" />
+    <img src="https://github.com/zjukg/K-ON/blob/main/imgs/example.png" width="55%" height="auto" />
 </div>
 
 ### Overview
@@ -17,7 +17,7 @@ Recent advancements in large language models (LLMs) have significantly improved 
 
 
 <div align="center">
-    <img src="https://github.com/zjukg/K-ON/blob/master/imgs/arch.png" width="85%" height="auto" />
+    <img src="https://github.com/zjukg/K-ON/blob/main/imgs/arch.png" width="85%" height="auto" />
 </div>
 
 
@@ -86,6 +86,6 @@ We appreciate [LLaMA](https://github.com/facebookresearch/llama), [Huggingface T
 R.I.P. Kyoto Animation.
 
 <div align="center">
-    <img src="https://github.com/zjukg/K-ON/blob/master/imgs/banner.jpg" width="85%" height="auto" />
+    <img src="https://github.com/zjukg/K-ON/blob/main/imgs/banner.jpg" width="100%" height="auto" />
 </div>
 
